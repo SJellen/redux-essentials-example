@@ -7,7 +7,9 @@ import {
   incrementAsync,
   incrementIfOdd,
   incrementFive,
+  divideTen,
   selectCount,
+  reset
 } from './counterSlice';
 import styles from './Counter.module.css';
 
@@ -19,7 +21,17 @@ export function Counter() {
   const incrementValue = Number(incrementAmount) || 0;
 
   return (
+
     <div>
+      <div className={styles.row}>
+        <button
+          className={styles.button}
+          aria-label="Increment value"
+          onClick={() => dispatch(reset())}
+        >
+          Reset
+        </button>
+      </div>
       <div className={styles.row}>
         <button
           className={styles.button}
@@ -67,6 +79,12 @@ export function Counter() {
           onClick={() => dispatch(incrementFive(incrementValue))}
         >
          Add 5
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => dispatch(divideTen(incrementValue))}
+        >
+         Divide by 10
         </button>
       </div>
     </div>
