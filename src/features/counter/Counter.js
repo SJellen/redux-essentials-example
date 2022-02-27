@@ -93,7 +93,7 @@ export function Counter() {
         />
         <button
           className={styles.button}
-          onClick={() => dispatch(incrementByAmount(divisorAmount))}
+          onClick={() => dispatch(divisorByAmount(divisorAmount))}
         >
           Divide Amount
         </button>
