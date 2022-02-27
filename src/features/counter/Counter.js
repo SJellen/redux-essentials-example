@@ -9,6 +9,7 @@ import {
   incrementFive,
   divideTen,
   selectCount,
+  divideThree, divisorByAmount,
   reset
 } from './counterSlice';
 import styles from './Counter.module.css';
@@ -17,6 +18,7 @@ export function Counter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
+  const [divisorAmount, setDivisorAmount] = useState('5')
 
   const incrementValue = Number(incrementAmount) || 0;
 
@@ -26,7 +28,7 @@ export function Counter() {
       <div className={styles.row}>
         <button
           className={styles.button}
-          aria-label="Increment value"
+          aria-label="reset value"
           onClick={() => dispatch(reset())}
         >
           Reset
@@ -80,11 +82,32 @@ export function Counter() {
         >
          Add 5
         </button>
+       
+      </div>
+      <div className={styles.row}>
+      <input
+          className={styles.textbox}
+          aria-label="Set division amount"
+          value={divisorAmount}
+          onChange={(e) => setDivisorAmount(e.target.value)}
+        />
+        <button
+          className={styles.button}
+          onClick={() => dispatch(incrementByAmount(divisorAmount))}
+        >
+          Divide Amount
+        </button>
         <button
           className={styles.button}
           onClick={() => dispatch(divideTen(incrementValue))}
         >
          Divide by 10
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => dispatch(divideThree(incrementValue))}
+        >
+         Divide by 3
         </button>
       </div>
     </div>

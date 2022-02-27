@@ -39,6 +39,10 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload;
     },
+    // divide by 
+    divisorByAmount: (state, action) => {
+      state.value /= action.payload;
+    },
 
     // increment by 5
     incrementFive: (state) => {
@@ -47,6 +51,10 @@ export const counterSlice = createSlice({
     // divide by 10
     divideTen: (state) => {
       state.value /= 10
+    },
+    // divide by three 
+    divideThree: (state) => {
+      state.value /= 3
     },
     // rest to zero
     reset: (state) => {
@@ -68,7 +76,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount, incrementFive, divideTen, reset } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount, incrementFive, divideTen, divideThree, reset, divisorByAmount } = counterSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
